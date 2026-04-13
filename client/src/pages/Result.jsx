@@ -29,16 +29,16 @@ const Result = () => {
 
             if (data.success) {
               console.log('image url:', data.image);
-                setImage(data.image); // ✅ just set image, onLoad will handle the rest
+                setImage(data.image); 
             } else {
                 toast.error(data.message || "Failed to generate image");
-                setLoading(false); // ✅ stop loading on API error
+                setLoading(false); 
             }
         } catch (error) {
             toast.error(error.message);
-            setLoading(false); // ✅ stop loading on crash
+            setLoading(false); 
         }
-        // ✅ NO finally block — loading stops in onLoad
+        
     };
 
     const handleDownload = () => {
@@ -56,17 +56,17 @@ const Result = () => {
             transition={{ duration: 0.5 }}
             className='flex flex-col min-h-[90vh] justify-center items-center'
         >
-            {/* IMAGE + LOADING BAR */}
+            
             <div className='relative mb-6 w-full max-w-sm'>
 
-                {/* show placeholder box while loading */}
+                
                 {loading && !image && (
                     <div className='w-full h-64 bg-gray-100 rounded flex items-center justify-center'>
                         <p className='text-gray-400 text-sm'>Generating your image...</p>
                     </div>
                 )}
 
-                {/* actual image — hidden until loaded */}
+                
                 {image && (
                     <img
                         src={image}
@@ -74,17 +74,17 @@ const Result = () => {
                         className="w-full rounded"
                         referrerPolicy="no-referrer"
                         onLoad={() => {
-                            setLoading(false);      // ✅ stop bar when image paints
+                            setLoading(false);      
                             setIsImageLoaded(true);
                         }}
                         onError={() => {
-                            setLoading(false);      // ✅ stop bar on error too
+                            setLoading(false);      
                             toast.error("Image failed to load");
                         }}
                     />
                 )}
 
-                {/* ✅ loading bar — visible while loading */}
+                
                 {loading && (
                     <>
                         <div className='w-full mt-3 h-1 bg-gray-200 rounded-full overflow-hidden'>
@@ -100,7 +100,7 @@ const Result = () => {
                 )}
             </div>
 
-            {/* INPUT */}
+            
             {!isImageLoaded && (
                 <form onSubmit={onSubmitHandler} className='flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 rounded-full'>
                     <input
@@ -121,7 +121,7 @@ const Result = () => {
                 </form>
             )}
 
-            {/* BUTTONS AFTER IMAGE */}
+            
             {isImageLoaded && (
                 <div className='flex gap-4 mt-6'>
                     <button

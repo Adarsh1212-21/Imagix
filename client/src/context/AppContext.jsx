@@ -1,4 +1,4 @@
-// AppContext.jsx
+
 import { createContext, useState } from 'react';
 
 export const AppContext = createContext();
@@ -19,7 +19,7 @@ const logout = () => {
 };
     const value = {
         backendUrl,
-        token,        // ✅ make sure this is here
+        token,        
         setToken,
          user, setUser, 
         showLogin,

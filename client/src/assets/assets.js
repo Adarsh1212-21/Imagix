@@ -1,4 +1,4 @@
-//import images
+
 import logo from './logo.png'
 import logo_icon from './logo_icon.svg'
 import facebook_icon from './facebook_icon.svg'
